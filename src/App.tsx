@@ -14,10 +14,14 @@ function App() {
     });
   };
 
+  const removeListHandler = (todoId: string) => {
+    setTodos(prevState => prevState.filter(item => item.id !== todoId))
+  }
+
   return (
     <div className="App">
       <NewTodo onAddTodo={addTodoHandler} />
-      <Todos items={todos} />
+      <Todos items={todos} onRemoveList={removeListHandler}/>
     </div>
   );
 }
